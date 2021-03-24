@@ -65,7 +65,7 @@ class MouseButtons:
 # Default apps
 class DefaultApps:
     TERM = 'kitty'
-    WEB = 'firefox'
+    WEB = 'brave'
     LAUNCHER = 'rofi -show drun'
     EMACS = 'emacs'
 
@@ -118,7 +118,7 @@ keys = [
     Key([k.SUPER], 'm', lazy.layout.maximize(),
         desc='Toggle between min and max sizes'),
     Key([k.SUPER, k.SHIFT], 'm', lazy.window.toggle_fullscreen(),
-        desc='Toggle fulscreen'),
+        desc='Toggle fullscreen'),
     Key([k.SUPER, k.CTRL], 'k', lazy.layout.grow(),
         lazy.layout.increase_nmaster(),
         desc='Expand window (monadtall), increase number in master pane (tile)'),
