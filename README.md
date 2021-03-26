@@ -24,6 +24,7 @@ Package: `qtile`
 - Volume control: `pamixer`
 - Screen information: `python-xlib`
 - Applets: `network-manager-applet`, `pasystray`, `redshift`
+- Disks/drives mounting: `udiskie`
 
 ## TODO
 

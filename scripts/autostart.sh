@@ -8,3 +8,4 @@ picom &
 redshift-gtk &
 nm-applet &
 pasystray &
+udiskie &
