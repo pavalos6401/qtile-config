@@ -64,10 +64,10 @@ class MouseButtons:
 
 # Default apps
 class DefaultApps:
-    TERM = 'kitty'
-    WEB = 'brave'
-    LAUNCHER = 'rofi -show drun'
-    EMACS = 'emacs'
+    TERM = 'alacritty'
+    WEB = 'google-chrome-stable'
+    LAUNCHER = 'dmenu_run'
+    EDITOR = 'emacs'
 
 
 k = KeysHolder()    # Holder for key buttons
@@ -144,7 +144,7 @@ keys = [
     Key([k.SUPER], 'r', lazy.spawn(a.LAUNCHER), desc='Open default launcher'),
     Key([k.SUPER], k.ENTER, lazy.spawn(a.TERM), desc='Open default terminal'),
     Key([k.SUPER], 'b', lazy.spawn(a.WEB), desc='Open default browser'),
-    Key([k.SUPER], 'e', lazy.spawn(a.EMACS), desc='Open emacs'),
+    Key([k.SUPER], 'e', lazy.spawn(a.EDITOR), desc='Open default editor'),
 
     # Screenshots
     Key([], k.PRINT, lazy.spawn(f"'{SCRIPTS}/select-shot-clip.sh'"),
