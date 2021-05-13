@@ -17,14 +17,13 @@ Package: `qtile`
 
 - Fonts: `adobe-source-code-pro-fonts`, `nerd-fonts-complete` (AUR)
 - Screenshots: `maim`, `xclip`
-- Browser: `firefox`
-- Terminal: `kitty`
-- Launcher: `rofi`
+- Browser: `google-chrome` (AUR)
+- Terminal: `alacritty`
+- Launcher: `dmenu`
 - Compositor: `picom`
 - Volume control: `pamixer`
 - Screen information: `python-xlib`
 - Applets: `network-manager-applet`, `pasystray`, `redshift`
-- Disks/drives mounting: `udiskie`
 
 ## TODO
 
