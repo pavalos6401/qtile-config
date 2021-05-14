@@ -4,10 +4,10 @@
 # ~/.config/qtile/themes/nord.py
 #
 
-wall_dir = '/home/pavalos/Pictures/wallpapers/archlinux.png'
+wall_dir = '~/Pictures/wallpapers/the-great-wave.png'
 
 def_font = 'Source Sans Pro'           # Default font
-sym_font = 'SourceCodePro Nerd Font'  # Font for symbols
+sym_font = 'Sauce Code Pro Nerd Font'  # Font for symbols
 
 # Nord theme colors
 theme = dict(

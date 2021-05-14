@@ -66,7 +66,7 @@ class MouseButtons:
 class DefaultApps:
     TERM = 'alacritty'
     WEB = 'google-chrome-stable'
-    LAUNCHER = 'dmenu_run'
+    LAUNCHER = 'rofi -show drun'
     EDITOR = 'emacs'
 
 

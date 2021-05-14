@@ -7,12 +7,12 @@
 from libqtile.config import Screen
 from libqtile import widget, bar
 from Xlib import display as xdisplay
-from themes.nord import wall_dir, groupbox_defaults, current_screen_defaults, widget_defaults, color_schemes
+from theme import wall_dir, groupbox_defaults, current_screen_defaults, widget_defaults, color_schemes
 
 color_scheme = color_schemes[1]
 
 # Default settings for widgets
-extesnion_defaults = widget_defaults.copy()
+extension_defaults = widget_defaults.copy()
 
 # Widgets for main screen/monitor
 bar_widgets = [
@@ -80,7 +80,7 @@ second_bar_widgets = [
     widget.Clock(
         **widget_defaults,
         **color_scheme,
-        format='%Y-%m-%d %a %I:%M %p'
+        format='%Y-%m-%d %a %I:%M %p',
     ),
     widget.CurrentScreen(
         **widget_defaults,
@@ -99,6 +99,7 @@ second_bar_widgets = [
 screens = [
     Screen(
         wallpaper=wall_dir,
+        wallpaper_mode='fill',
         top=bar.Bar(
             bar_widgets,
             32,
@@ -140,6 +141,7 @@ if get_num_monitors() > 1:
     screens.append(
         Screen(
             wallpaper=wall_dir,
+            wallpaper_mode='fill',
             top=bar.Bar(
                 second_bar_widgets,
                 32,
