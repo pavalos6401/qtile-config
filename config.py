@@ -4,11 +4,11 @@
 # ~/.config/qtile/config.py
 #
 
-from screens import screens
-from keys import keys, mouse
-from layouts import layouts, floating_layout
-from groups import groups
-from hooks import *
+from settings.screens import screens
+from settings.keys import keys, mouse
+from settings.layouts import layouts, floating_layout
+from settings.groups import groups
+from settings.hooks import *
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List

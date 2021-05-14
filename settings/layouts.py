@@ -5,7 +5,7 @@
 #
 
 from libqtile import layout
-from theme import layout_defaults, tree_tab_defaults
+from settings.theme import layout_defaults, tree_tab_defaults
 
 # Floating windows share the same defaults
 floating_layout_defaults = layout_defaults.copy()

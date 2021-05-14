@@ -7,7 +7,7 @@
 from libqtile.config import Group, Match, Key
 from libqtile.lazy import lazy
 
-from keys import k, keys
+from settings.keys import k, keys
 
 # Dictionary with window rules.
 # Places windows that match to the appropriate group.

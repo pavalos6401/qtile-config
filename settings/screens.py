@@ -7,7 +7,7 @@
 from libqtile.config import Screen
 from libqtile import widget, bar
 from Xlib import display as xdisplay
-from theme import wall_dir, groupbox_defaults, current_screen_defaults, widget_defaults, color_schemes
+from settings.theme import wall_dir, groupbox_defaults, current_screen_defaults, widget_defaults, color_schemes
 
 color_scheme = color_schemes[1]
 

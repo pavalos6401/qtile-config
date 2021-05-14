@@ -11,6 +11,8 @@ and with configurability.
 
 ![screenshot](./screenshot.png)
 
+For details on the keybindings, see the [documentation](./doc/keybindings.md)
+
 ## Requirements
 
 Package: `qtile`
@@ -25,7 +27,7 @@ Package: `qtile`
 - Screen information: `python-xlib`
 - Applets: `network-manager-applet`, `pasystray`, `redshift`
 
-## TODO
+## Installation
 
-- Edit the 'themes' layout, the way it is configured at the moment requires
-  two separate changes in `screens` and in `layouts.py`
+1. Install requirements
+2. Clone the repository into `~/.config/qtile`
