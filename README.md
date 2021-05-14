@@ -25,6 +25,7 @@ Package: `qtile`
 - Compositor: `picom`
 - Volume control: `pamixer`
 - Screen information: `python-xlib`
+- Locker: `light-locker`
 - Applets: `network-manager-applet`, `pasystray`, `redshift`
 
 ## Installation

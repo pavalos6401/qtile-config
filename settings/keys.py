@@ -159,6 +159,8 @@ keys = [
     Key([], k.VOL_DOWN, lazy.spawn('pamixer -d 2'), desc='Lower volume'),
     Key([], k.MUTE, lazy.spawn('pamixer -t'), desc='Toggle mute'),
 
+    # Lock screen
+    Key([k.SUPER, k.CTRL], 'l', lazy.spawn('light-locker-command -l'), desc='Lock screen'),
     # Restart qtile
     Key([k.SUPER, k.CTRL], 'r', lazy.restart(), desc='Restart qtile config'),
     # Quit qtile

@@ -76,10 +76,11 @@
 | `volume-down` | Lower volume (by 2) |
 | `volume-mute` | Toggle mute         |
 
-### Qtile controls
+### Qtile/Other controls
 
 | Keys               | Description          |
 | ------------------ | -------------------- |
+| `super`+`ctrl`+`l` | Lock screen          |
 | `super`+`ctrl`+`r` | Restart qtile config |
 | `super`+`ctrl`+`q` | Exit/Quit qtile      |
 
