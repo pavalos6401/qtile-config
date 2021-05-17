@@ -7,7 +7,7 @@
 
 class Wallpaper:
     folder = "~/Pictures/wallpapers"
-    path = f"{folder}/the-great-wave.png"
+    path   = f"{folder}/the-great-wave.png"
 
 
 class Fonts:
@@ -26,9 +26,9 @@ class Colors:
     nord5 = "#E5E9F0"  # Subtle/inconspicuous text elements
     nord6 = "#ECEFF4"  # Elevated elements
     # Frost
-    nord7 = "#8FBCBB"  # Stand out
-    nord8 = "#88C0D0"  # Primary elements
-    nord9 = "#81A1C1"  # Secondary elements
+    nord7  = "#8FBCBB"  # Stand out
+    nord8  = "#88C0D0"  # Primary elements
+    nord9  = "#81A1C1"  # Secondary elements
     nord10 = "#5E81AC"  # Tertiary elements
     # Aurora
     nord11 = "#BF616A"  # Red

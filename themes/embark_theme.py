@@ -4,99 +4,104 @@
 # ~/.config/qtile/themes/embark_theme.py
 #
 
-wall_dir = '/home/pavalos/Pictures/wallpapers/magic-forest.jpg'
 
-def_font = 'Fira Sans'               # Default font
-sym_font = 'FiraCode Nerd Font'  # Font for symbols
+class Wallpaper:
+    folder = "~/Pictures/wallpapers"
+    path = f"{folder}/magic-forest.jpg"
 
-# Embark theme colors
-theme = dict(
+
+class Fonts:
+    default = "Fira Sans"
+    symbols = "FiraCode Nerd Font"
+
+
+class Colors:
     # Space Colors
-    space0='100e23',
-    space1='1e1c31',
-    space2='2d2b40',
-    space3='3e3859',
-    space4='585273',
+    space0 = "#100E23",
+    space1 = "#1E1C31",
+    space2 = "#2D2B40",
+    space3 = "#3E3859",
+    space4 = "#585273",
     # Astral colors
-    astral0='8a889d',
-    astral1='cbe3e7',
+    astral0 = "#8A889D",
+    astral1 = "#CBE3E7",
     # Nebula colors
-    red='f48fb1',
-    dark_red='f02e6e',
-    green='a1efd3',
-    dark_green='62d196',
-    yellow='ffe6b3',
-    dark_yellow='f2b482',
-    blue='91ddff',
-    dark_blue='65b2ff',
-    purple='d4bfff',
-    dark_purple='a37acc',
-    cyan='87dfeb',
-    dark_cyan='63f2f1',
-)
-
-# Color schemes for widgets
-color_schemes = [
-    dict(
-        background=[theme['space1'], theme['space0']],
-        foreground=[theme['astral1'], theme['astral0']],
-    ),
-    dict(
-        background=[theme['space1'], theme['space0']],
-        foreground=[theme['astral1'], theme['astral0']],
-    ),
-]
-
-# Default settings for groupbox widgets
-groupbox_defaults = dict(
-    # Text colors
-    active=[theme['astral0'], theme['astral1']],
-    inactive=[theme['astral0'], theme['space4']],
-    # Current screen colors
-    highlight_method='line',
-    highlight_color=[theme['space2'], theme['space0']],
-    this_current_screen_border=theme['dark_cyan'],
-    # Other screen colors
-    other_screen_border=[theme['astral0'], theme['astral0']],
-    other_current_screen_border=[theme['astral0'], theme['astral0']],
-    # Urgent colors
-    urgent_alert_method='text',
-    urgent_text=[theme['red'], theme['dark_red']],
-)
-
-# Defaults for CurrentScreen widgets
-current_screen_defaults = dict(
-    active_color=theme['green'],
-    inactive_color=theme['red'],
-)
-
-# Default settings for all other widgets
-widget_defaults = dict(
-    font=def_font,
-    fontsize=12,
-    padding=6,
-)
+    red = "#F48FB1",
+    dark_red = "#F02E6E",
+    green = "#A1EFD3",
+    dark_green = "#62D196",
+    yellow = "#FFE6B3",
+    dark_yellow = "#F2B482",
+    blue = "#91DDFF",
+    dark_blue = "#65B2FF",
+    purple = "#D4BFFF",
+    dark_purple = "#A37ACC",
+    cyan = "#87DFEB",
+    dark_cyan = "#63F2F1",
 
 
-# Default settings for any layout
-layout_defaults = dict(
-    margin=6,
-    border_width=3,
-    border_focus=theme['dark_cyan'],
-    border_normal=theme['space1'],
-    grow_amount=3,
-)
+class LayoutSchemes:
+    # Default settings for any layout
+    defaults = dict(
+        margin=6,
+        border_width=3,
+        border_focus=Colors.dark_cyan,
+        border_normal=Colors.space1,
+        grow_amount=3,
+    )
 
-# Default settings for tree tab layout
-tree_tab_defaults = dict(
-    font=def_font,
-    sections=['FIRST', 'SECOND'],
-    section_fontsize=11,
-    bg_color=theme['space1'],
-    active_bg=theme['purple'],
-    inactive_bg=theme['dark_purple'],
-    inactive_fg=theme['astral1'],
-    padding_y=6,
-    section_top=10,
-    panel_width=320,
-)
+    # Default settings for Floating layout
+    floating = dict(
+        border_width=0,
+        grow_amount=3,
+    )
+
+    # Default settings for TreeTab layout
+    tree_tab = dict(
+        font=Fonts.default,
+        sections=["FIRST", "SECOND"],
+        section_fontsize=11,
+        bg_color=Colors.space1,
+        active_bg=Colors.purple,
+        inactive_bg=Colors.dark_purple,
+        inactive_fg=Colors.astral1,
+        padding_y=6,
+        section_top=10,
+        panel_width=320,
+    )
+
+
+class WidgetSchemes:
+    # Default settings for all other widgets
+    defaults = dict(
+        font=Fonts.default,
+        fontsize=12,
+        padding=6,
+        foreground=[Colors.astral1, Colors.astral0]
+        background=[Colors.space1, Colors.space0],
+    )
+
+    # Default settings for GroupBox widgets
+    groupbox = dict(
+        **default,
+        # Text colors
+        active=[Colors.astral0, Colors.astral1],
+        inactive=[Colors.astral0, Colors.space4],
+        # Current screen colors
+        highlight_method="line",
+        highlight_color=[Colors.space2, Colors.space0],
+        this_current_screen_border=Colors.dark_cyan,
+        # Other screen colors
+        other_screen_border=Colors.astral0,
+        other_current_screen_border=Colors.astral0,
+        # Urgent colors
+        urgent_alert_method="text",
+        urgent_text=[Colors.red, Colors.dark_red],
+    )
+
+    # Defaults for CurrentScreen widgets
+    current_screen = dict(
+        **default,
+        active_color=Colors.green,
+        inactive_color=Colors.red,
+    )
