@@ -7,48 +7,35 @@
 from libqtile.config import Screen
 from libqtile import widget, bar
 from Xlib import display as xdisplay
-from settings.theme import wall_dir, groupbox_defaults, current_screen_defaults, widget_defaults, color_schemes
+from settings.theme import Wallpaper, WidgetSchemes
 
-color_scheme = color_schemes[1]
-
-# Default settings for widgets
-extension_defaults = widget_defaults.copy()
 
 # Widgets for main screen/monitor
 bar_widgets = [
     widget.Spacer(
-        **color_scheme,
+        **WidgetSchemes.default,
         length=6,
     ),
     widget.CurrentLayoutIcon(
-        **color_scheme,
+        **WidgetSchemes.default,
         scale=0.6,
     ),
     widget.GroupBox(
-        **widget_defaults,
-        **color_scheme,
-        **groupbox_defaults,
+        **WidgetSchemes.groupbox,
         disable_drag=True,
     ),
     widget.WindowName(
-        **widget_defaults,
-        **color_scheme,
+        **WidgetSchemes.default,
     ),
     widget.Systray(
-        **widget_defaults,
-        **color_scheme,
+        **WidgetSchemes.default,
     ),
-    widget.Clock(
-        **widget_defaults,
-        **color_scheme,
-        format='%Y-%m-%d %a %I:%M %p'
-    ),
+    widget.Clock(**WidgetSchemes.default, format="%Y-%m-%d %a %I:%M %p"),
     widget.QuickExit(
-        **widget_defaults,
-        **color_scheme,
+        **WidgetSchemes.default,
     ),
     widget.Spacer(
-        **color_scheme,
+        **WidgetSchemes.default,
         length=6,
     ),
 ]
@@ -56,41 +43,35 @@ bar_widgets = [
 # Widgets for other screens/monitors
 second_bar_widgets = [
     widget.Spacer(
-        **color_scheme,
+        **WidgetSchemes.default,
         length=6,
     ),
     widget.CurrentLayoutIcon(
-        **color_scheme,
+        **WidgetSchemes.default,
         scale=0.6,
     ),
     widget.GroupBox(
-        **widget_defaults,
-        **color_scheme,
-        **groupbox_defaults,
+        **WidgetSchemes.groupbox,
         disable_drag=True,
     ),
     widget.Spacer(
-        **color_scheme,
+        **WidgetSchemes.default,
         length=16,
     ),
     widget.WindowName(
-        **widget_defaults,
-        **color_scheme,
+        **WidgetSchemes.default,
     ),
     widget.Clock(
-        **widget_defaults,
-        **color_scheme,
-        format='%Y-%m-%d %a %I:%M %p',
+        **WidgetSchemes.default,
+        format="%Y-%m-%d %a %I:%M %p",
     ),
     widget.CurrentScreen(
-        **widget_defaults,
-        **color_scheme,
-        **current_screen_defaults,
-        active_text='active',
-        inactive_text='inactive',
+        **WidgetSchemes.current_screen,
+        active_text="active",
+        inactive_text="inactive",
     ),
     widget.Spacer(
-        **color_scheme,
+        **WidgetSchemes.default,
         length=6,
     ),
 ]
@@ -98,8 +79,8 @@ second_bar_widgets = [
 # Initially set the screens to just the main screen/monitor
 screens = [
     Screen(
-        wallpaper=wall_dir,
-        wallpaper_mode='fill',
+        wallpaper=Wallpaper.path,
+        wallpaper_mode="fill",
         top=bar.Bar(
             bar_widgets,
             32,
@@ -119,12 +100,11 @@ def get_num_monitors():
         resources = screen.root.xrandr_get_screen_resources()
 
         for output in resources.outputs:
-            monitor = display.xrandr_get_output_info(
-                output, resources.config_timestamp)
+            monitor = display.xrandr_get_output_info(output, resources.config_timestamp)
             preferred = False
-            if hasattr(monitor, 'preferred'):
+            if hasattr(monitor, "preferred"):
                 preferred = monitor.preferred
-            elif hasattr(monitor, 'num_preferred'):
+            elif hasattr(monitor, "num_preferred"):
                 preferred = monitor.num_preferred
             if preferred:
                 num_monitors += 1
@@ -140,8 +120,8 @@ if get_num_monitors() > 1:
     # If there are, add the screen for the secondary monitor
     screens.append(
         Screen(
-            wallpaper=wall_dir,
-            wallpaper_mode='fill',
+            wallpaper=Wallpaper.path,
+            wallpaper_mode="fill",
             top=bar.Bar(
                 second_bar_widgets,
                 32,
