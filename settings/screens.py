@@ -72,9 +72,3 @@ class ScreensMaker:
             )
 
         return self.screens
-
-
-# Temporary
-screens_maker = ScreensMaker()
-
-screens = screens_maker.make_screens()

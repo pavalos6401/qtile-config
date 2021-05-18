@@ -61,13 +61,3 @@ class LayoutsMaker:
             )
 
         return self.floating_layout
-
-
-# Temporary, moving to a more OOP approach
-layouts_maker = LayoutsMaker()
-
-# Layouts i commonly use, with unused ones commented out
-layouts = layouts_maker.make_layouts()
-
-# Floating layout for windows that should default to floating
-floating_layout = layouts_maker.make_floating_layout()
