@@ -17,26 +17,26 @@ class Fonts:
 
 class Colors:
     # Base colors
-    red          = "#E33400",
-    orange       = "#E39400",
-    green        = "#5CCC96",
-    yellow       = "#F2CE00",
-    purple       = "#B3A1E6",
-    purple2      = "#7A5CCC",
-    dark_purple  = "#30365F",
-    dark_purple2 = "#686F9A",
-    cyan         = "#00A3CC",
-    magenta      = "#CE6F8F',
+    red = "#E33400"
+    orange = "#E39400"
+    green = "#5CCC96"
+    yellow = "#F2CE00"
+    purple = "#B3A1E6"
+    purple2 = "#7A5CCC"
+    dark_purple = "#30365F"
+    dark_purple2 = "#686F9A"
+    cyan = "#00A3CC"
+    magenta = "#CE6F8F"
     # Special colors
-    background       = "#0F111B",
-    foreground       = "#ECF0C1",
-    visual_selection = "#1B1C36",
-    cursor_line      = "#16172D",
+    background = "#0F111B"
+    foreground = "#ECF0C1"
+    visual_selection = "#1B1C36"
+    cursor_line = "#16172D"
     # Coloration colors
-    grey       = "#818596",
-    grey2      = "#C1C3CC",
-    pure_white = "#FFFFFF",
-    pure_black = "#000000",
+    grey = "#818596"
+    grey2 = "#C1C3CC"
+    pure_white = "#FFFFFF"
+    pure_black = "#000000"
 
 
 class LayoutSchemes:
@@ -96,8 +96,8 @@ class WidgetSchemes:
         other_current_screen_border=Colors.dark_purple,
         other_screen_border=Colors.dark_purple2,
         # Urgent colors
-        urgent_alert_method='text',
-        urgent_text=[theme['red'], theme['red']],
+        urgent_alert_method="text",
+        urgent_text=Colors.red,
     )
 
     # Defaults for CurrentScreen widgets

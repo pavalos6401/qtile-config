@@ -17,27 +17,27 @@ class Fonts:
 
 class Colors:
     # Space Colors
-    space0 = "#100E23",
-    space1 = "#1E1C31",
-    space2 = "#2D2B40",
-    space3 = "#3E3859",
-    space4 = "#585273",
+    space0 = ("#100E23",)
+    space1 = ("#1E1C31",)
+    space2 = ("#2D2B40",)
+    space3 = ("#3E3859",)
+    space4 = ("#585273",)
     # Astral colors
-    astral0 = "#8A889D",
-    astral1 = "#CBE3E7",
+    astral0 = ("#8A889D",)
+    astral1 = ("#CBE3E7",)
     # Nebula colors
-    red = "#F48FB1",
-    dark_red = "#F02E6E",
-    green = "#A1EFD3",
-    dark_green = "#62D196",
-    yellow = "#FFE6B3",
-    dark_yellow = "#F2B482",
-    blue = "#91DDFF",
-    dark_blue = "#65B2FF",
-    purple = "#D4BFFF",
-    dark_purple = "#A37ACC",
-    cyan = "#87DFEB",
-    dark_cyan = "#63F2F1",
+    red = ("#F48FB1",)
+    dark_red = ("#F02E6E",)
+    green = ("#A1EFD3",)
+    dark_green = ("#62D196",)
+    yellow = ("#FFE6B3",)
+    dark_yellow = ("#F2B482",)
+    blue = ("#91DDFF",)
+    dark_blue = ("#65B2FF",)
+    purple = ("#D4BFFF",)
+    dark_purple = ("#A37ACC",)
+    cyan = ("#87DFEB",)
+    dark_cyan = ("#63F2F1",)
 
 
 class LayoutSchemes:
@@ -77,7 +77,7 @@ class WidgetSchemes:
         font=Fonts.default,
         fontsize=12,
         padding=6,
-        foreground=[Colors.astral1, Colors.astral0]
+        foreground=[Colors.astral1, Colors.astral0],
         background=[Colors.space1, Colors.space0],
     )
 

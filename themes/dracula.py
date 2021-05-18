@@ -12,22 +12,22 @@ class Wallpaper:
 
 class Fonts:
     default = "Fira Sans"
-    symbols = "FiraCode Nerd Font
+    symbols = "FiraCode Nerd Font"
 
 
 class Colors:
     background = "#282A36"
-    current_line = "#44475A",
-    selection = "#44475A",
-    foreground = "#F8F8F2",
-    comment = "#6272A4",
-    cyan = "#8BE9FD",
-    green ="#50FA7B",
-    orange = "#FFB86C",
-    pink = "#FF79C6",
-    purple = "#BD93F9",
-    red = "#FF5555",
-    yellow = "#F1FA8C",
+    current_line = "#44475A"
+    selection = "#44475A"
+    foreground = "#F8F8F2"
+    comment = "#6272A4"
+    cyan = "#8BE9FD"
+    green = "#50FA7B"
+    orange = "#FFB86C"
+    pink = "#FF79C6"
+    purple = "#BD93F9"
+    red = "#FF5555"
+    yellow = "#F1FA8C"
 
 
 class LayoutSchemes:
@@ -42,8 +42,8 @@ class LayoutSchemes:
 
     # Default settings for Floating layout
     floating = dict(
-        border_width = 0,
-        grow_ammount = 3,
+        border_width=0,
+        grow_ammount=3,
     )
 
     # Default settings for TreeTab layout
@@ -65,11 +65,11 @@ class LayoutSchemes:
 class WidgetSchemes:
     # Default settings for all other widgets
     default = dict(
-        font = Fonts.default,
-        fontsize = 12,
-        padding = 6,
-        foreground = Colors.foreground,
-        background = Colors.background,
+        font=Fonts.default,
+        fontsize=12,
+        padding=6,
+        foreground=Colors.foreground,
+        background=Colors.background,
     )
 
     # Default settings for GroupBox widgets
@@ -96,4 +96,3 @@ class WidgetSchemes:
         active_color=Colors.green,
         inactive_color=Colors.red,
     )
-
