@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 #
-# ~/.config/qtile/keys.py
+# ~/.config/qtile/settings/keys.py
 #
 
 import os.path

@@ -1,132 +1,80 @@
 #!/usr/bin/env python3
 
 #
-# ~/.config/qtile/screens.py
+# ~/.config/qtile/settings/screens.py
 #
 
-from libqtile.config import Screen
-from libqtile import widget, bar
 from Xlib import display as xdisplay
-from settings.theme import Wallpaper, WidgetSchemes
+from libqtile import bar
+from libqtile.config import Screen
+from settings.theme import Wallpaper
+from settings.widgets import WidgetsMaker
 
 
-# Widgets for main screen/monitor
-bar_widgets = [
-    widget.Spacer(
-        **WidgetSchemes.default,
-        length=6,
-    ),
-    widget.CurrentLayoutIcon(
-        **WidgetSchemes.default,
-        scale=0.6,
-    ),
-    widget.GroupBox(
-        **WidgetSchemes.groupbox,
-        disable_drag=True,
-    ),
-    widget.WindowName(
-        **WidgetSchemes.default,
-    ),
-    widget.Systray(
-        **WidgetSchemes.default,
-    ),
-    widget.Clock(**WidgetSchemes.default, format="%Y-%m-%d %a %I:%M %p"),
-    widget.QuickExit(
-        **WidgetSchemes.default,
-    ),
-    widget.Spacer(
-        **WidgetSchemes.default,
-        length=6,
-    ),
-]
+class ScreensMaker:
+    def __init__(self):
+        self.widgets_maker = WidgetsMaker()
+        self.screens = None
 
-# Widgets for other screens/monitors
-second_bar_widgets = [
-    widget.Spacer(
-        **WidgetSchemes.default,
-        length=6,
-    ),
-    widget.CurrentLayoutIcon(
-        **WidgetSchemes.default,
-        scale=0.6,
-    ),
-    widget.GroupBox(
-        **WidgetSchemes.groupbox,
-        disable_drag=True,
-    ),
-    widget.Spacer(
-        **WidgetSchemes.default,
-        length=16,
-    ),
-    widget.WindowName(
-        **WidgetSchemes.default,
-    ),
-    widget.Clock(
-        **WidgetSchemes.default,
-        format="%Y-%m-%d %a %I:%M %p",
-    ),
-    widget.CurrentScreen(
-        **WidgetSchemes.current_screen,
-        active_text="active",
-        inactive_text="inactive",
-    ),
-    widget.Spacer(
-        **WidgetSchemes.default,
-        length=6,
-    ),
-]
+    def count_monitors(self):
+        num_monitors = 0
+        try:
+            display = xdisplay.Display()
+            screen = display.screen()
+            resources = screen.root.xrandr_get_screen_resources()
 
-# Initially set the screens to just the main screen/monitor
-screens = [
-    Screen(
-        wallpaper=Wallpaper.path,
-        wallpaper_mode="fill",
-        top=bar.Bar(
-            bar_widgets,
-            32,
-            opacity=0.9,
-            margin=6,
-        ),
-    ),
-]
+            for output in resources.outputs:
+                monitor = display.xrandr_get_output_info(
+                    output, resources.config_timestamp
+                )
+                preferred = False
+                if hasattr(monitor, "preferred"):
+                    preferred = monitor.preferred
+                elif hasattr(monitor, "num_preferred"):
+                    preferred = monitor.num_preferred
+                if preferred:
+                    num_monitors += 1
+        except Exception as e:
+            # Always set at least one monitor
+            return 1
+        else:
+            return num_monitors
+
+    def make_screens(self):
+        # Initially set it to just the main monitor/screen
+        self.screens = [
+            Screen(
+                wallpaper=Wallpaper.path,
+                wallpaper_mode="fill",
+                top=bar.Bar(
+                    self.widgets_maker.make_main(),
+                    32,
+                    opacity=0.9,
+                    margin=6,
+                ),
+            )
+        ]
+
+        # Check if there are more monitors
+        if self.count_monitors() > 1:
+            # If there are, add the screen for the secondary monitor
+            self.screens.append(
+                Screen(
+                    wallpaper=Wallpaper.path,
+                    wallpaper_mode="fill",
+                    top=bar.Bar(
+                        self.widgets_maker.make_other(),
+                        32,
+                        opacity=0.9,
+                        margin=6,
+                    ),
+                )
+            )
+
+        return self.screens
 
 
-# Function that returns how many monitors are active
-def get_num_monitors():
-    num_monitors = 0
-    try:
-        display = xdisplay.Display()
-        screen = display.screen()
-        resources = screen.root.xrandr_get_screen_resources()
+# Temporary
+screens_maker = ScreensMaker()
 
-        for output in resources.outputs:
-            monitor = display.xrandr_get_output_info(output, resources.config_timestamp)
-            preferred = False
-            if hasattr(monitor, "preferred"):
-                preferred = monitor.preferred
-            elif hasattr(monitor, "num_preferred"):
-                preferred = monitor.num_preferred
-            if preferred:
-                num_monitors += 1
-    except Exception as e:
-        # Always set at least one monitor
-        return 1
-    else:
-        return num_monitors
-
-
-# Check if there are more monitors
-if get_num_monitors() > 1:
-    # If there are, add the screen for the secondary monitor
-    screens.append(
-        Screen(
-            wallpaper=Wallpaper.path,
-            wallpaper_mode="fill",
-            top=bar.Bar(
-                second_bar_widgets,
-                32,
-                opacity=0.9,
-                margin=6,
-            ),
-        )
-    )
+screens = screens_maker.make_screens()

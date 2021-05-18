@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
 #
-# ~/.config/qtile/hooks.py
+# ~/.config/qtile/settings/hooks.py
 #
 
-from libqtile import hook
 import subprocess
+from libqtile import hook
 
 
 @hook.subscribe.startup_once

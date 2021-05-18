@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
 
 #
-# ~/.config/qtile/groups.py
+# ~/.config/qtile/settings/groups.py
 #
 
 from libqtile.config import Group, Match, Key
 from libqtile.lazy import lazy
-
-from settings.keys import k, keys
+from settings.keys import keys, KeysHolder
 
 
 class GroupsMaker:
@@ -45,10 +44,12 @@ class GroupsMaker:
                 ],
             ),
         )
-        self.groups = []
-        self.keybindings = []
+        self.groups = None
+        self.keybindings = None
+        self.k = KeysHolder()
 
     def make_groups(self):
+        self.groups = []
         num = 1
         for k, v in self.groups_settings.items():
             self.groups.append(
@@ -57,21 +58,22 @@ class GroupsMaker:
             num += 1
         return self.groups
 
-    def make_keybindings(self, k):
+    def make_keybindings(self):
+        self.keybindings = []
         # Create the keybindings related to groups
         for i in self.groups:
             self.keybindings.extend(
                 [
                     # super + name = switch to group
                     Key(
-                        [k.SUPER],
+                        [self.k.SUPER],
                         i.name,
                         lazy.group[i.name].toscreen(),
                         desc="Switch to group {}".format(i.name),
                     ),
                     # super + shift + name = move focused window to group
                     Key(
-                        [k.SUPER, k.SHIFT],
+                        [self.k.SUPER, self.k.SHIFT],
                         i.name,
                         lazy.window.togroup(i.name),
                         desc="Move focused window to group {}".format(i.name),
@@ -88,4 +90,4 @@ groups_maker = GroupsMaker()
 groups = groups_maker.make_groups()
 
 # Add group-related bindings to the keybindings
-keys.extend(groups_maker.make_keybindings(k))
+keys.extend(groups_maker.make_keybindings())
