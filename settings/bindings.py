@@ -7,8 +7,8 @@
 import os.path
 from libqtile.config import Click, Drag, Key, Match
 from libqtile.xkeysyms import keysyms
-from settings.lazy_functions import *
 from settings.apps import DefaultApps
+from settings.lazy_functions import *
 
 
 # Holds keyboard keys to make using special keys easer.
@@ -73,7 +73,6 @@ class KeysMaker:
         self.keys = None
 
     def make_keys(self):
-        # Keyboard shortcuts
         self.keys = [
             # Layout controls
             Key(
@@ -331,39 +330,40 @@ class MouseMaker:
         self.mouse = None
 
     def make_mouse(self):
-        self.mouse = [
-            # Drag windows (turns into a floating window)
-            Drag(
-                [self.k.SUPER],
-                self.m.LEFT,
-                lazy.window.set_position_floating(),
-                start=lazy.window.get_position(),
-            ),
-            # Resize windows (turns into a floating window)
-            Drag(
-                [self.k.SUPER],
-                self.m.RIGHT,
-                lazy.window.set_size_floating(),
-                start=lazy.window.get_size(),
-            ),
-            # Bring a floating window to the front
-            Click(
-                [self.k.SUPER],
-                self.m.MIDDLE,
-                lazy.window.bring_to_front(),
-            ),
-            # Change group
-            Click(
-                [self.k.SUPER],
-                self.m.WHEEL_UP,
-                lazy.screen.next_group(),
-            ),
-            Click(
-                [self.k.SUPER],
-                self.m.WHEEL_DOWN,
-                lazy.screen.prev_group(),
-            ),
-        ]
+        if self.mouse is None:
+            self.mouse = [
+                # Drag windows (turns into a floating window)
+                Drag(
+                    [self.k.SUPER],
+                    self.m.LEFT,
+                    lazy.window.set_position_floating(),
+                    start=lazy.window.get_position(),
+                ),
+                # Resize windows (turns into a floating window)
+                Drag(
+                    [self.k.SUPER],
+                    self.m.RIGHT,
+                    lazy.window.set_size_floating(),
+                    start=lazy.window.get_size(),
+                ),
+                # Bring a floating window to the front
+                Click(
+                    [self.k.SUPER],
+                    self.m.MIDDLE,
+                    lazy.window.bring_to_front(),
+                ),
+                # Change group
+                Click(
+                    [self.k.SUPER],
+                    self.m.WHEEL_UP,
+                    lazy.screen.next_group(),
+                ),
+                Click(
+                    [self.k.SUPER],
+                    self.m.WHEEL_DOWN,
+                    lazy.screen.prev_group(),
+                ),
+            ]
 
         return self.mouse
 

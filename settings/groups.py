@@ -44,6 +44,7 @@ class GroupsMaker:
                 layout="max",
                 matches=[
                     Match(wm_class=["vlc"]),
+                    Match(wm_class=["mpv"]),
                 ],
             ),
             gam=dict(

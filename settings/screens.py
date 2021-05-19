@@ -56,8 +56,8 @@ class ScreensMaker:
         ]
 
         # Check if there are more monitors
-        if self.count_monitors() > 1:
-            # If there are, add the screen for the secondary monitor
+        for monitor in range(self.count_monitors() - 1):
+            # If there are, add the screen for the other monitor(s)
             self.screens.append(
                 Screen(
                     wallpaper=Wallpaper.path,
