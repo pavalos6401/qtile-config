@@ -7,7 +7,7 @@
 import os.path
 from libqtile.config import Click, Drag, Key, Match
 from libqtile.xkeysyms import keysyms
-from settings.apps import DefaultApps
+from settings.apps import *
 from settings.lazy_functions import *
 
 

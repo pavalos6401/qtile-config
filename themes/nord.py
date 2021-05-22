@@ -4,6 +4,8 @@
 # ~/.config/qtile/themes/nord.py
 #
 
+import os.path
+
 
 class Wallpaper:
     folder = "~/Pictures/wallpapers"
@@ -73,21 +75,92 @@ class LayoutSchemes:
 class WidgetSchemes:
     # Default settings for all widgets
     default = dict(
-        font=Fonts.default,
-        fontsize=12,
+        font=Fonts.symbols,
+        fontsize=14,
         padding=6,
         foreground=Colors.nord4,
-        background=Colors.nord1,
+        background=Colors.nord0,
+    )
+
+    icon = dict(
+        font=Fonts.symbols,
+        fontsize=16,
+        padding=6,
+        foreground=Colors.nord4,
+        background=Colors.nord0,
+    )
+
+    calendar = dict(
+        font=Fonts.symbols,
+        fontsize=16,
+        padding=6,
+        foreground=Colors.nord13,
+        background=Colors.nord0,
+    )
+
+    clock = dict(
+        font=Fonts.symbols,
+        fontsize=16,
+        padding=6,
+        foreground=Colors.nord14,
+        background=Colors.nord0,
+    )
+
+    # Settings for Icon TextBox
+    launcher = dict(
+        font=Fonts.symbols,
+        fontsize=18,
+        padding=6,
+        foreground=Colors.nord9,
+        background=Colors.nord0,
+    )
+
+    windowcount = dict(
+        font=Fonts.symbols,
+        fontsize=14,
+        padding=6,
+        foreground=Colors.nord7,
+        background=Colors.nord0,
+    )
+
+    windowname = dict(
+        font=Fonts.default,
+        fontsize=14,
+        padding=6,
+        foreground=Colors.nord7,
+        background=Colors.nord0,
+    )
+
+    quickexit = dict(
+        font=Fonts.symbols,
+        fontsize=18,
+        padding=6,
+        foreground=Colors.nord10,
+        background=Colors.nord0,
+    )
+
+    # CurrentLayoutIcon scheme
+    current_layout_icon = dict(
+        custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons/nord")],
+        foreground=Colors.nord4,
+        background=Colors.nord0,
+        padding=6,
+        scale=0.6,
     )
 
     # Settings for GroupBox widgets
     groupbox = dict(
-        **default,
+        font=Fonts.symbols,
+        fontsize=18,
+        padding=8,
+        foreground=Colors.nord8,
+        background=Colors.nord0,
+        borderwidth=0,
         # Text colors
         active=Colors.nord4,
         inactive=Colors.nord3,
         # Highlight colors
-        highlight_method="line",
+        highlight_method="text",
         highlight_color=Colors.nord2,
         # Focused screen
         this_current_screen_border=Colors.nord7,

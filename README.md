@@ -19,9 +19,9 @@ Package: `qtile`
 
 - Fonts: `adobe-source-code-pro-fonts`, `nerd-fonts-complete` (AUR)
 - Screenshots: `maim`, `xclip`
-- Browser: `google-chrome` (AUR)
+- Browser: `qutebrowser`
 - Terminal: `alacritty`
-- Launcher: `dmenu`
+- Launcher: `rofi`
 - Compositor: `picom`
 - Volume control: `pamixer`
 - Screen information: `python-xlib`

@@ -15,19 +15,24 @@ from libqtile.widget import (
     # Memory,
     # Net,
     # Prompt,
+    Sep,
     Spacer,
     Systray,
     # TaskList,
     TextBox,
     # ThermalSensor,
     QuickExit,
+    WindowCount,
     WindowName,
 )
+from settings.apps import *
+from settings.bindings import MouseButtons
 from settings.theme import WidgetSchemes
 
 
 class WidgetsMaker:
     def __init__(self):
+        self.m = MouseButtons()
         self.main_widgets = None
         self.other_widgets = None
 
@@ -39,26 +44,54 @@ class WidgetsMaker:
                     **WidgetSchemes.default,
                     length=6,
                 ),
-                CurrentLayoutIcon(
-                    **WidgetSchemes.default,
-                    scale=0.6,
+                TextBox(
+                    **WidgetSchemes.launcher,
+                    text="🌊",
+                    mouse_callbacks={self.m.LEFT: open_launcher},
                 ),
                 GroupBox(
                     **WidgetSchemes.groupbox,
                     disable_drag=True,
                 ),
+                CurrentLayoutIcon(
+                    **WidgetSchemes.current_layout_icon,
+                ),
+                Spacer(
+                    **WidgetSchemes.default,
+                    length=6,
+                ),
+                WindowCount(
+                    **WidgetSchemes.windowcount,
+                    text_format="{num} ",
+                ),
                 WindowName(
+                    **WidgetSchemes.windowname,
+                    empty_group_string="Desktop",
+                    format="{state}{name}",
+                    mouse_callbacks={self.m.MIDDLE: kill_window},
+                ),
+                Spacer(
                     **WidgetSchemes.default,
                 ),
                 Systray(
                     **WidgetSchemes.default,
                 ),
-                Clock(
+                Spacer(
                     **WidgetSchemes.default,
-                    format="%Y-%m-%d %a %I:%M %p",
+                    length=6,
+                ),
+                Clock(
+                    **WidgetSchemes.calendar,
+                    format=" %a, %b %d",
+                ),
+                Clock(
+                    **WidgetSchemes.clock,
+                    format=" %H:%M",
                 ),
                 QuickExit(
-                    **WidgetSchemes.default,
+                    **WidgetSchemes.quickexit,
+                    default_text="",
+                    countdown_format="{}",
                 ),
                 Spacer(
                     **WidgetSchemes.default,

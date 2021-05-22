@@ -15,16 +15,19 @@ class GroupsMaker:
             web=dict(
                 layout="monadtall",
                 matches=[],
+                icon="爵",
             ),
             dev=dict(
                 layout="monadtall",
                 matches=[
                     Match(wm_class=["code"]),
                 ],
+                icon="",
             ),
             doc=dict(
                 layout="monadtall",
                 matches=[],
+                icon="",
             ),
             chat=dict(
                 layout="stack",
@@ -33,12 +36,14 @@ class GroupsMaker:
                     Match(wm_class=["zoom"]),
                     Match(wm_class=["skype"]),
                 ],
+                icon="",
             ),
             mus=dict(
                 layout="monadtall",
                 matches=[
                     Match(wm_class=["spotify"]),
                 ],
+                icon="",
             ),
             vid=dict(
                 layout="max",
@@ -46,6 +51,7 @@ class GroupsMaker:
                     Match(wm_class=["vlc"]),
                     Match(wm_class=["mpv"]),
                 ],
+                icon="",
             ),
             gam=dict(
                 layout="tile",
@@ -55,10 +61,12 @@ class GroupsMaker:
                     Match(wm_class=["supertuxkart"]),
                     Match(wm_class=["xonotic-sdl"]),
                 ],
+                icon="",
             ),
             sys=dict(
                 layout="monadtall",
                 matches=[],
+                icon="",
             ),
             vm=dict(
                 layout="treetab",
@@ -66,6 +74,7 @@ class GroupsMaker:
                     Match(wm_class=["virt-manager"]),
                     Match(wm_class=["remote-viewer"]),
                 ],
+                icon="",
             ),
         )
         self.groups = None
@@ -78,7 +87,7 @@ class GroupsMaker:
                 Group(
                     f"{num}",
                     layout=v["layout"],
-                    label=k,
+                    label=v["icon"],
                     matches=v["matches"],
                 )
             )

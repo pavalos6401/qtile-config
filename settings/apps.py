@@ -4,12 +4,20 @@
 # ~/.config/qtile/settings/apps.py
 #
 
+from libqtile import qtile
 
 # Default apps
 class DefaultApps:
-    def __init__(self):
-        self.EDITOR = "emacs"
-        self.LAUNCHER = "rofi -show drun"
-        self.LOCKER = "light-locker-command -l"
-        self.TERM = "alacritty"
-        self.WEB = "google-chrome-stable"
+    EDITOR = "emacs"
+    LAUNCHER = "rofi -show drun"
+    LOCKER = "light-locker-command -l"
+    TERM = "alacritty"
+    WEB = "qutebrowser"
+
+
+def open_launcher():
+    qtile.cmd_spawn(DefaultApps.LAUNCHER)
+
+
+def kill_window():
+    qtile.cmd_spawn("xdotool getwindowfocus windowkill")

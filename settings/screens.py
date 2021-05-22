@@ -49,7 +49,7 @@ class ScreensMaker:
                 top=bar.Bar(
                     self.widgets_maker.make_main(),
                     32,
-                    opacity=0.9,
+                    opacity=0.95,
                     margin=6,
                 ),
             )
@@ -65,7 +65,7 @@ class ScreensMaker:
                     top=bar.Bar(
                         self.widgets_maker.make_other(),
                         32,
-                        opacity=0.9,
+                        opacity=0.95,
                         margin=6,
                     ),
                 )
