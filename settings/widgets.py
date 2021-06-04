@@ -18,16 +18,18 @@ from libqtile.widget import (
     Sep,
     Spacer,
     Systray,
-    # TaskList,
+    TaskList,
     TextBox,
     # ThermalSensor,
     QuickExit,
+    Volume,
     WindowCount,
     WindowName,
+    # Wlan,
 )
 from settings.apps import *
 from settings.bindings import MouseButtons
-from settings.theme import WidgetSchemes
+from settings.theme import WidgetSchemes, Colors, Fonts
 
 
 class WidgetsMaker:
@@ -41,13 +43,17 @@ class WidgetsMaker:
         if self.main_widgets is None:
             self.main_widgets = [
                 Spacer(
-                    **WidgetSchemes.default,
+                    **WidgetSchemes.spacer,
                     length=6,
                 ),
                 TextBox(
                     **WidgetSchemes.launcher,
-                    text="🌊",
+                    text="",
                     mouse_callbacks={self.m.LEFT: open_launcher},
+                ),
+                Spacer(
+                    **WidgetSchemes.spacer,
+                    length=6,
                 ),
                 GroupBox(
                     **WidgetSchemes.groupbox,
@@ -57,28 +63,28 @@ class WidgetsMaker:
                     **WidgetSchemes.current_layout_icon,
                 ),
                 Spacer(
-                    **WidgetSchemes.default,
+                    **WidgetSchemes.spacer,
                     length=6,
-                ),
-                WindowCount(
-                    **WidgetSchemes.windowcount,
-                    text_format="{num} ",
                 ),
                 WindowName(
                     **WidgetSchemes.windowname,
                     empty_group_string="Desktop",
-                    format="{state}{name}",
                     mouse_callbacks={self.m.MIDDLE: kill_window},
                 ),
                 Spacer(
-                    **WidgetSchemes.default,
+                    **WidgetSchemes.spacer,
                 ),
                 Systray(
                     **WidgetSchemes.default,
                 ),
                 Spacer(
-                    **WidgetSchemes.default,
+                    **WidgetSchemes.spacer,
                     length=6,
+                ),
+                Volume(
+                    **WidgetSchemes.volume,
+                    mouse_callbacks={self.m.RIGHT: open_volume_control},
+                    fmt="墳 {}",
                 ),
                 Clock(
                     **WidgetSchemes.calendar,
@@ -94,7 +100,7 @@ class WidgetsMaker:
                     countdown_format="{}",
                 ),
                 Spacer(
-                    **WidgetSchemes.default,
+                    **WidgetSchemes.spacer,
                     length=6,
                 ),
             ]
@@ -110,8 +116,7 @@ class WidgetsMaker:
                     length=6,
                 ),
                 CurrentLayoutIcon(
-                    **WidgetSchemes.default,
-                    scale=0.6,
+                    **WidgetSchemes.current_layout_icon,
                 ),
                 GroupBox(
                     **WidgetSchemes.groupbox,

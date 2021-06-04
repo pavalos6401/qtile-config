@@ -82,6 +82,10 @@ class WidgetSchemes:
         background=Colors.nord0,
     )
 
+    spacer = dict(
+        background=Colors.nord0,
+    )
+
     icon = dict(
         font=Fonts.symbols,
         fontsize=16,
@@ -115,17 +119,9 @@ class WidgetSchemes:
         background=Colors.nord0,
     )
 
-    windowcount = dict(
-        font=Fonts.symbols,
-        fontsize=14,
-        padding=6,
-        foreground=Colors.nord7,
-        background=Colors.nord0,
-    )
-
     windowname = dict(
         font=Fonts.default,
-        fontsize=14,
+        fontsize=16,
         padding=6,
         foreground=Colors.nord7,
         background=Colors.nord0,
@@ -136,6 +132,14 @@ class WidgetSchemes:
         fontsize=18,
         padding=6,
         foreground=Colors.nord10,
+        background=Colors.nord0,
+    )
+
+    volume = dict(
+        font=Fonts.symbols,
+        fontsize=16,
+        padding=6,
+        foreground=Colors.nord15,
         background=Colors.nord0,
     )
 
