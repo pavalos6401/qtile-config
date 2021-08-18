@@ -10,37 +10,37 @@ VOLUME   = "pavucontrol"
 
 	[groups.web]
 	num     = 1
-	layout  = "monadtall"
+	layout  = "columns"
 	matches = []
 	icon    = "爵"
 
 	[groups.development]
 	num     = 2
-	layout  = "monadtall"
+	layout  = "columns"
 	matches = ["code"]
 	icon    = ""
 	
 	[groups.documentation]
 	num     = 3
-	layout  = "monadtall"
+	layout  = "columns"
 	matches = []
 	icon    = ""
 	
 	[groups.chat]
 	num     = 4
-	layout  = "monadtall"
+	layout  = "columns"
 	matches = ["discord", "zoom", "skype"]
 	icon    = ""
 	
 	[groups.music]
 	num     = 5
-	layout  = "monadtall"
+	layout  = "columns"
 	matches = ["spotify"]
 	icon    = ""
 	
 	[groups.video]
 	num     = 6
-	layout  = "monadtall"
+	layout  = "max"
 	matches = ["vlc", "mpv"]
 	icon    = ""
 	
@@ -52,13 +52,13 @@ VOLUME   = "pavucontrol"
 	
 	[groups.system]
 	num     = 8
-	layout  = "monadtall"
+	layout  = "columns"
 	matches = []
 	icon    = ""
 	
 	[groups.virtual]
 	num     = 9
-	layout  = "monadtall"
+	layout  = "columns"
 	matches = ["virt-manager", "remote-viewer"]
 	icon    = ""
 
@@ -86,29 +86,24 @@ VOLUME   = "pavucontrol"
 	[theme.widgets]
 
 		[theme.widgets.default]
-		fontsize   = 14
+		fontsize   = 16
 		padding    = 6
 		foreground = "#D8DEE9"
 		background = "#2E3440"
 	
 		[theme.widgets.calendar]
-		fontsize   = 16
 		foreground = "#EBCB8B"
 
 		[theme.widgets.clock]
-		fontsize   = 16
 		foreground = "#A3BE8C"
 		
 		[theme.widgets.launcher]
-		fontsize   = 18
 		foreground = "#81A1C1"
 
 		[theme.widgets.windowname]
-		fontsize   = 16
 		foreground = "#8FBCBB"
 
 		[theme.widgets.quickexit]
-		fontsize   = 18
 		foreground = "#5E81AC"
 
 		[theme.widgets.volume]
@@ -119,7 +114,6 @@ VOLUME   = "pavucontrol"
 		scale             = 0.6
 
 		[theme.widgets.groupbox]
-		fontsize                    = 18
 		padding                     = 8
 		foreground                  = "#88C0D0"
 		borderwidth                 = 0
