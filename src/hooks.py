@@ -1,20 +1,21 @@
-#!/usr/bin/env python3
-
 #
-# ~/.config/qtile/settings/hooks.py
+# ~/.config/qtile/src/hooks.py
 #
 
-import subprocess
+from subprocess import call
+
 from libqtile import hook
+
+from src.util.paths import scripts_folder
 
 
 @hook.subscribe.startup_once
-def autostart():
-    subprocess.call(["/home/pavalos/.config/qtile/scripts/autostart.sh"])
+def autostart() -> None:
+    call([scripts_folder / "autostart.sh"])
 
 
 @hook.subscribe.client_new
-def float_firefox(window):
+def float_firefox(window) -> None:
     wm_class = window.window.get_wm_class()
     w_name = window.window.get_name()
     if wm_class == ("Places", "firefox") and w_name == "Library":
@@ -22,7 +23,7 @@ def float_firefox(window):
 
 
 @hook.subscribe.client_new
-def float_pycharm(window):
+def float_pycharm(window) -> None:
     wm_class = window.window.get_wm_class()
     w_name = window.window.get_name()
     if (
@@ -32,7 +33,7 @@ def float_pycharm(window):
 
 
 @hook.subscribe.client_new
-def float_steam(window):
+def float_steam(window) -> None:
     wm_class = window.window.get_wm_class()
     w_name = window.window.get_name()
     if wm_class == ("Steam", "Steam") and (
@@ -43,3 +44,4 @@ def float_steam(window):
         or "PMaxSize" in window.window.get_wm_normal_hints().get("flags", ())
     ):
         window.floating = True
+

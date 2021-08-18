@@ -4,35 +4,44 @@
 # ~/.config/qtile/config.py
 #
 
-from settings.screens import ScreensMaker
-from settings.bindings import BindingsMaker
-from settings.layouts import LayoutsMaker
-from settings.groups import GroupsMaker
-from settings.hooks import *
+from src.bindings import KeysMaker, MouseMaker
+from src.groups import GroupsMaker
+from src.hooks import (
+    autostart,
+    float_firefox,
+    float_pycharm,
+    float_steam,
+)
+from src.layouts import LayoutsMaker
+from src.screens import ScreensMaker
 
-screens_maker = ScreensMaker()
-bindings_maker = BindingsMaker()
-layouts_maker = LayoutsMaker()
-groups_maker = GroupsMaker()
 
-screens = screens_maker.make_screens()
+screens_maker: ScreensMaker = ScreensMaker()
+keys_maker: KeysMaker = KeysMaker()
+mouse_maker: MouseMaker = MouseMaker()
+layouts_maker: LayoutsMaker = LayoutsMaker()
+groups_maker: GroupsMaker = GroupsMaker()
 
-layouts = layouts_maker.make_layouts()
+keys: list = keys_maker.init_keys()
 
-floating_layout = layouts_maker.make_floating_layout()
+screens: list = screens_maker.init_screens()
 
-groups = groups_maker.make_groups()
+layouts: list = layouts_maker.init_layouts()
+floating_layout = layouts_maker.init_floating_layout()
 
-keys = bindings_maker.make_keys(groups)
-mouse = bindings_maker.make_mouse()
+groups: list = groups_maker.init_groups()
+keys = keys_maker.init_groups(groups)
+
+mouse: list = mouse_maker.init_mouse()
 
 
 dgroups_key_binder = None
-dgroups_app_rules = []  # type: List
-follow_mouse_focus = True
-bring_front_click = False
-cursor_warp = False
-auto_fullscreen = True
-focus_on_window_activation = "smart"
+dgroups_app_rules: list = []
+follow_mouse_focus: bool = True
+bring_front_click: bool = False
+cursor_warp: bool = False
+auto_fullscreen: bool = True
+focus_on_window_activation: str = "smart"
 
-wmname = "LG3D"
+wmname: str = "LG3D"
+
