@@ -11,22 +11,25 @@ and with configurability.
 
 ![screenshot](./screenshot.png)
 
+For details on the keybindings, see the [documentation](./doc/keybindings.md)
+
 ## Requirements
 
 Package: `qtile`
 
 - Fonts: `adobe-source-code-pro-fonts`, `nerd-fonts-complete` (AUR)
 - Screenshots: `maim`, `xclip`
-- Browser: `firefox`
-- Terminal: `kitty`
+- Browser: `qutebrowser`
+- Terminal: `alacritty`
 - Launcher: `rofi`
 - Compositor: `picom`
-- Volume control: `pamixer`
+- Volume control: `pamixer`, `alsa-utils`, `pulseaudio-alsa`
+- Network: `psutils`, `python-psutil`
 - Screen information: `python-xlib`
+- Locker: `light-locker`
 - Applets: `network-manager-applet`, `pasystray`, `redshift`
-- Disks/drives mounting: `udiskie`
 
-## TODO
+## Installation
 
-- Edit the 'themes' layout, the way it is configured at the moment requires
-  two separate changes in `screens` and in `layouts.py`
+1. Install requirements
+2. Clone the repository into `~/.config/qtile`
