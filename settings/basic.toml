@@ -1,5 +1,5 @@
 [apps]
-EDITOR   = "emacs"
+EDITOR   = "emacsclient -c -a emacs"
 LAUNCHER = "rofi -show drun"
 LOCKER   = "light-locker-command -l"
 TERM     = "alacritty"
@@ -65,7 +65,7 @@ VOLUME   = "pavucontrol"
 [theme]
 
 	[theme.wallpaper]
-	path = "~/Pictures/Wallpapers/switzerland.jpeg"
+	path = "~/Pictures/Wallpapers/nord/solar-system.png"
 	
 	[theme.fonts]
 	default = "Source Sans Pro"

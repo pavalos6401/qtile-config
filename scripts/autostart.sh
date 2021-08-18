@@ -8,4 +8,5 @@ light-locker &
 picom &
 redshift-gtk &
 nm-applet &
+emacs --daemon &
 
