@@ -10,10 +10,10 @@ from src.util.settings import ThemeConfig
 class LayoutsMaker:
     """Creates the layouts to be used."""
 
-    def __init__(self) -> None:
+    def __init__(self, t: ThemeConfig) -> None:
         """Inits the attributes."""
 
-        self.t: ThemeConfig = ThemeConfig()
+        self.t: ThemeConfig = t
         self.layouts: list = []
         self.floating_layout: layout.Floating = None
 
@@ -68,4 +68,3 @@ class LayoutsMaker:
             )
 
         return self.floating_layout
-

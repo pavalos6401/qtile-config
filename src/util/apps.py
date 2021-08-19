@@ -37,4 +37,3 @@ class Apps:
         """Opens the default volume control app."""
 
         self.open_app("VOLUME")
-

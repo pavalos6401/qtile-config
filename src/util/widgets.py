@@ -54,10 +54,7 @@ class WidgetsMaker:
                     length=6,
                 ),
                 TextBox(
-                    **{
-                        **self.t.widgets["default"],
-                        **self.t.widgets["launcher"]
-                    },
+                    **{**self.t.widgets["default"], **self.t.widgets["launcher"]},
                     font=self.t.fonts["symbols"],
                     text="",
                     mouse_callbacks={self.m.LEFT: self.a.open_launcher},
@@ -145,4 +142,3 @@ class WidgetsMaker:
             ]
 
         return self.widgets
-

@@ -67,7 +67,7 @@ class ThemeConfig(SectionConfig):
         self.fonts: dict = {}
         if "fonts" in self.theme:
             self.fonts = self.theme["fonts"]
-        
+
         self.layouts: dict = {}
         if "layouts" in self.theme:
             self.layouts = self.theme["layouts"]
@@ -75,4 +75,3 @@ class ThemeConfig(SectionConfig):
         self.widgets: dict = {}
         if "widgets" in self.theme:
             self.widgets = self.theme["widgets"]
-

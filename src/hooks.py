@@ -44,4 +44,3 @@ def float_steam(window) -> None:
         or "PMaxSize" in window.window.get_wm_normal_hints().get("flags", ())
     ):
         window.floating = True
-

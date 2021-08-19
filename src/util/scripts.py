@@ -13,4 +13,3 @@ class ScriptsHolder:
 
         for script in scripts_folder.iterdir():
             setattr(self, script.stem, script)
-

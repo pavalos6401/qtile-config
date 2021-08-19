@@ -2,15 +2,13 @@
 # ~/.config/qtile/src/util/paths.py
 #
 
-from os import PathLike
 from pathlib import Path
 
 
-ROOT_DIR: PathLike = Path("~/.config/qtile").expanduser()
+ROOT_DIR: Path = Path("~/.config/qtile").expanduser()
 
-scripts_folder: PathLike = ROOT_DIR / "scripts"
+scripts_folder: Path = ROOT_DIR / "scripts"
 
-config_folder: PathLike = ROOT_DIR / "settings"
+config_folder: Path = ROOT_DIR / "settings"
 
-basic_config: PathLike = config_folder / "basic.toml"
-
+basic_config: Path = config_folder / "basic.toml"

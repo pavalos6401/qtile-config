@@ -1,0 +1,135 @@
+[apps]
+EDITOR   = "emacsclient -c -a emacs"
+LAUNCHER = "rofi -show drun"
+LOCKER   = "light-locker-command -l"
+TERM     = "alacritty"
+WEB      = "qutebrowser"
+VOLUME   = "pavucontrol"
+
+[groups]
+
+	[groups.web]
+	num     = 1
+	layout  = "columns"
+	matches = []
+	icon    = "爵"
+
+	[groups.development]
+	num     = 2
+	layout  = "columns"
+	matches = ["code"]
+	icon    = ""
+	
+	[groups.documentation]
+	num     = 3
+	layout  = "columns"
+	matches = []
+	icon    = ""
+	
+	[groups.chat]
+	num     = 4
+	layout  = "columns"
+	matches = ["discord", "zoom", "skype"]
+	icon    = ""
+	
+	[groups.music]
+	num     = 5
+	layout  = "columns"
+	matches = ["spotify"]
+	icon    = ""
+	
+	[groups.video]
+	num     = 6
+	layout  = "max"
+	matches = ["vlc", "mpv"]
+	icon    = ""
+	
+	[groups.games]
+	num     = 7
+	layout  = "monadtall"
+	matches = ["Steam", "lutris", "supertuxkart", "xonotic-sdl"]
+	icon    = ""
+	
+	[groups.system]
+	num     = 8
+	layout  = "columns"
+	matches = []
+	icon    = ""
+	
+	[groups.virtual]
+	num     = 9
+	layout  = "columns"
+	matches = ["virt-manager", "remote-viewer"]
+	icon    = ""
+
+[theme]
+
+	[theme.wallpaper]
+	path = "~/Pictures/Wallpapers/nord/solar-system.png"
+	
+	[theme.fonts]
+	default = "Source Sans Pro"
+	symbols = "Sauce Code Pro Nerd Font"
+
+	[theme.layouts]
+
+		[theme.layouts.default]
+		margin        = 6
+		border_width  = 3
+		border_focus  = "#88C0D0"
+		border_normal = "#2E3440"
+		grow_amount   = 3
+
+		[theme.layouts.floating]
+		border_width = 0
+
+	[theme.widgets]
+
+		[theme.widgets.default]
+		fontsize   = 16
+		padding    = 6
+		foreground = "#D8DEE9"
+		background = "#2E3440"
+	
+		[theme.widgets.calendar]
+		foreground = "#EBCB8B"
+
+		[theme.widgets.clock]
+		foreground = "#A3BE8C"
+		
+		[theme.widgets.launcher]
+		foreground = "#81A1C1"
+
+		[theme.widgets.windowname]
+		foreground = "#8FBCBB"
+
+		[theme.widgets.quickexit]
+		foreground = "#5E81AC"
+
+		[theme.widgets.volume]
+		foreground = "#B48EAD"
+
+		[theme.widgets.current_layout_icon]
+		custom_icon_paths = ["~/.config/qtile/icons/nord"]
+		scale             = 0.6
+
+		[theme.widgets.groupbox]
+		padding                     = 8
+		foreground                  = "#88C0D0"
+		borderwidth                 = 0
+		# text colors
+		active                      = "#D8DEE9"
+		inactive                    = "#4C566A"
+		# Highlight colors
+		highlight_method            = "text"
+		highlight_color             = "#434C5E"
+		# Focused screen colros
+		this_current_screen_border  = "#8FBCBB"
+		other_current_screen_border = "#88C0D0"
+		# Unfocused screen colors
+		this_screen_border          = "#81A1C1"
+		other_screen_border         = "#5E81AC"
+		# Urgent colors
+		urgent_alert_method         = "text"
+		urgent_text                 = "#BF616A"
+
