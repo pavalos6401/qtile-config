@@ -116,6 +116,7 @@ class WidgetsMaker:
                         **self.t.widgets["calendar"],
                     },
                     font=self.t.fonts["symbols"],
+                    mouse_callbacks={self.m.LEFT: self.a.open_calendar},
                     format=" %a, %b %d",
                 ),
                 Clock(
