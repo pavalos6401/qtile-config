@@ -107,7 +107,7 @@ class WidgetsMaker:
                         **self.t.widgets["volume"],
                     },
                     font=self.t.fonts["symbols"],
-                    mosue_callbacks={self.m.RIGHT: self.a.open_volume_control},
+                    mouse_callbacks={self.m.RIGHT: self.a.open_volume_control},
                     fmt="墳 {}",
                 ),
                 Clock(
