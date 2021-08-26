@@ -38,3 +38,7 @@ class Apps:
 
         self.open_app("VOLUME")
 
+    def open_calendar(self) -> None:
+        """Opens the default calendar app."""
+
+        self.open_app("CALENDAR")

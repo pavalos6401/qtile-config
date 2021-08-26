@@ -12,5 +12,4 @@ class ScriptsHolder:
         """Inits the attributes."""
 
         for script in scripts_folder.iterdir():
-            setattr(self, script.stem, script)
-
+            setattr(self, script.stem, str(script))

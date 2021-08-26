@@ -25,7 +25,6 @@ Package: `qtile`
 - Compositor: `picom`
 - Volume control: `pamixer`, `alsa-utils`, `pulseaudio-alsa`
 - Network: `psutils`, `python-psutil`
-- Screen information: `python-xlib`
 - Locker: `light-locker`
 - Applets: `network-manager-applet`, `pasystray`, `redshift`
 

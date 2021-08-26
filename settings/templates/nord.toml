@@ -1,5 +1,4 @@
 [apps]
-CALENDAR = "xdg-open https://calendar.google.com/"
 EDITOR   = "emacsclient -c -a emacs"
 LAUNCHER = "rofi -show drun"
 LOCKER   = "light-locker-command -l"

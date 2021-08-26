@@ -31,4 +31,3 @@ class GroupsMaker:
             ]
 
         return self.groups
-

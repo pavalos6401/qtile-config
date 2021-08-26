@@ -15,12 +15,12 @@ from src.util.scripts import ScriptsHolder
 class KeysMaker:
     """Makes the keybindings."""
 
-    def __init__(self) -> None:
+    def __init__(self, a: Apps, k: KeysHolder, s: ScriptsHolder) -> None:
         """Inits the attributes."""
 
-        self.a: Apps = Apps()
-        self.k: KeysHolder = KeysHolder()
-        self.s: ScriptsHolder = ScriptsHolder()
+        self.a: Apps = a
+        self.k: KeysHolder = k
+        self.s: ScriptsHolder = s
         self.keys: list[Key] = []
 
     def init_keys(self) -> list[Key]:
@@ -254,7 +254,7 @@ class KeysMaker:
 
         return self.keys
 
-    def init_groups(self, groups) -> list[Key]:
+    def init_groups(self, groups: list) -> list[Key]:
         """Adds group bindings to the keybindings and returns keybindings."""
 
         for group in groups:
@@ -283,11 +283,11 @@ class KeysMaker:
 class MouseMaker:
     """Makes the mouse bindings."""
 
-    def __init__(self) -> None:
+    def __init__(self, k: KeysHolder, m: MouseHolder) -> None:
         """Inits the attributes."""
 
-        self.k: KeysHolder = KeysHolder()
-        self.m: MouseHolder = MouseHolder()
+        self.k: KeysHolder = k
+        self.m: MouseHolder = m
         self.mouse: list = []
 
     def init_mouse(self) -> list:
@@ -329,4 +329,3 @@ class MouseMaker:
             ]
 
         return self.mouse
-

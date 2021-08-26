@@ -54,10 +54,7 @@ class WidgetsMaker:
                     length=6,
                 ),
                 TextBox(
-                    **{
-                        **self.t.widgets["default"],
-                        **self.t.widgets["launcher"]
-                    },
+                    **{**self.t.widgets["default"], **self.t.widgets["launcher"]},
                     font=self.t.fonts["symbols"],
                     text="",
                     mouse_callbacks={self.m.LEFT: self.a.open_launcher},
@@ -110,7 +107,7 @@ class WidgetsMaker:
                         **self.t.widgets["volume"],
                     },
                     font=self.t.fonts["symbols"],
-                    mosue_callbacks={self.m.RIGHT: self.a.open_volume_control},
+                    mouse_callbacks={self.m.RIGHT: self.a.open_volume_control},
                     fmt="墳 {}",
                 ),
                 Clock(
@@ -119,6 +116,7 @@ class WidgetsMaker:
                         **self.t.widgets["calendar"],
                     },
                     font=self.t.fonts["symbols"],
+                    mouse_callbacks={self.m.LEFT: self.a.open_calendar},
                     format=" %a, %b %d",
                 ),
                 Clock(
@@ -145,4 +143,3 @@ class WidgetsMaker:
             ]
 
         return self.widgets
-

@@ -12,10 +12,10 @@ from src.util.widgets import WidgetsMaker
 class ScreensMaker:
     """Creates the screens to be used."""
 
-    def __init__(self) -> None:
+    def __init__(self, t: ThemeConfig) -> None:
         """Inits the attributes."""
-        
-        self.t: ThemeConfig = ThemeConfig()
+
+        self.t: ThemeConfig = t
         self.widgets_maker: WidgetsMaker = WidgetsMaker()
         self.screens: list[Screen] = []
 
@@ -37,4 +37,3 @@ class ScreensMaker:
             ]
 
         return self.screens
-
