@@ -66,7 +66,7 @@ VOLUME   = "pavucontrol"
 [theme]
 
 	[theme.wallpaper]
-	path = "~/Pictures/Wallpapers/nord/solar-system.png"
+	path = "~/.config/qtile/wallpapers/solar-system.png"
 	
 	[theme.fonts]
 	default = "Source Sans Pro"
